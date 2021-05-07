@@ -1,0 +1,19 @@
+body {
+
+    background-size: cover;
+    background-color: grey;
+}
+
+#display {
+
+    max-width: 900px;
+    background-color: yellow;
+    min-height: 900px;
+}
+
+#password { 
+
+    max-width: 600px;
+    max-height: 600px;
+    background-color: tomato;
+}

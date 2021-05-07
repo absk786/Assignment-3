@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+var charLengthInput;
+var candidatesforpassword;
+// This function will get the length for the password
+var charLength = function() {
+// prompt to find out length of password
+charLengthInput = window.prompt( "How long would you like your password to be? Choose a number between 8 and 128 characters.");
+//if valid number
+if (charLengthInput >=8 && charLengthInput <=128) {
+    return charLengthInput;
+}
+else {
+    window.alert("You need to choose a number greater than 8 and less than 128.");
+    charLength();
+}
+}
+charLength();
+
+// this statement will select which characters they want
+var selectUppercase = window.confirm('Do you want any UPPER case letters in your password?');
+var selectLowercase = window.confirm('Do you want any Lower cases letters in your password?');
+var selectSpecial = window.confirm('Do you want any special letters in your password?');
+var selectNumber = window.confirm('Do you want any numbers in your password?')
+    
+ for (let i=0; i < charLengthInput; i++) {
+    generateChars(i)
+ }
+
+function generateChars () {
+
+        if (selectUppercase===true) { 
+    //    document.write(getrandomUppercase());
+       candidatesforpassword +=getrandomUppercase();
+        }
+        if(selectLowercase===true) {
+                // console.log(getrandomLowercase());
+                candidatesforpassword +=getrandomLowercase();
+
+        }
+        if(selectSpecial===true) {
+                // console.log(getrandomSpecial());
+                candidatesforpassword +=getrandomSpecial();
+
+        }
+        if(selectNumber===true) {
+                // console.log(getrandomNumber());
+                candidatesforpassword +=getrandomNumber();
+
+        }
+}
+
+console.log(candidatesforpassword)
+length.candidatesforpassword;
+
+// this generates random uppercase letters
+function getrandomUppercase() {
+    return (String.fromCharCode(Math.floor((Math.random()*26) +65)));
+}
+// this generates random lowercase numbers
+function getrandomLowercase() {
+   return String.fromCharCode((Math.floor(Math.random()*26) + 97));
+}
+
+// this generates random special characters
+function getrandomSpecial() {
+
+return String.fromCharCode((Math.floor(Math.random()*15)+32));
+}
+
+// this generates random numbers between 0-9
+function getrandomNumber() {
+return String.fromCharCode(Math.floor((Math.random()*10)+48));
+}
+
+    </script>
+</body>
+</html>
