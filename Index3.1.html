@@ -60,20 +60,26 @@ function generateChars () {
  }
 
 //  This logs the output of characters and gives the length
-console.log(output);
-console.log(output.length);
+// console.log(output);
+// console.log(output.length);
 
-// this splits the output into an array of individual strings
+// this splits the output into an array of individual characters
 let array = output.split('');
-console.log(array);
+// console.log(array);
+
+for (var a =0; a < charLengthInput; a++) {
+    getarraychar(a);
+}
+
+function getarraychar () {
+console.log(array[randomarraynumber()]);
+}
 
 
-
-for (var i =0; i < output.length; i++)
-var randomarraynumber = Math.floor(Math.random()* output.length);
-
-
-
+// this generates a random number within the array index
+function randomarraynumber () {
+ return Math.floor(Math.random()* output.length);
+}
 // Below are the functions that generate my random numbers//
 // this generates random uppercase letters
 function getrandomUppercase() {
@@ -83,13 +89,11 @@ function getrandomUppercase() {
 function getrandomLowercase() {
    return String.fromCharCode((Math.floor(Math.random()*26) + 97));
 }
-
 // this generates random special characters
 function getrandomSpecial() {
 
 return String.fromCharCode((Math.floor(Math.random()*15)+32));
 }
-
 // this generates random numbers between 0-9
 function getrandomNumber() {
 return String.fromCharCode(Math.floor((Math.random()*10)+48));
