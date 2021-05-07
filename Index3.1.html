@@ -9,8 +9,9 @@
 </head>
 
 <body>
-  <p id=finalDisplay></p>
-    
+    <div>
+          <p id=finalDisplay></p>
+    </div>
 <script>
 // // Assignment Code
 // var generateBtn = document.querySelector("#generate");
@@ -78,18 +79,16 @@ function generateChars () {
 let array = output.split('');
 // console.log(array);
 
-
-
-for (var a =0; a < charLengthInput; a++) {
-    getarraychar(a);
-}
-
 var whatoDisplay = '';
-function getarraychar () {
-whatoDisplay += array[randomarraynumber()];
+for (var a =0; a < charLengthInput; a++) {
+  getarraychar(a);
 }
-
+function getarraychar () {
+    whatoDisplay += array[randomarraynumber()];
+}
 console.log(whatoDisplay);
+
+document.getElementById('finalDisplay').innerHTML = whatoDisplay;
 
 // document.getElementById("#finalDisplay") = whatoDisplay;
 
