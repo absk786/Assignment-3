@@ -5,13 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-
-
-
-
+  <p id=finalDisplay></p>
+    
 <script>
+// // Assignment Code
+// var generateBtn = document.querySelector("#generate");
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+//   passwordText.value = password;
+// }
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
+
 var charLengthInput;
 var output= '';
 // This function will get the length for the password
@@ -67,14 +78,20 @@ function generateChars () {
 let array = output.split('');
 // console.log(array);
 
+
+
 for (var a =0; a < charLengthInput; a++) {
     getarraychar(a);
 }
 
+var whatoDisplay = '';
 function getarraychar () {
-console.log(array[randomarraynumber()]);
+whatoDisplay += array[randomarraynumber()];
 }
 
+console.log(whatoDisplay);
+
+// document.getElementById("#finalDisplay") = whatoDisplay;
 
 // this generates a random number within the array index
 function randomarraynumber () {
