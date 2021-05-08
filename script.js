@@ -1,68 +1,85 @@
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", charLength);
-
+generateBtn.addEventListener("click", prompts);
 var whatoDisplay = '';
 var charLengthInput;
-var output= '';
+var output='';
+var selectUppercase;
+var selectLowercase;
+var selectSpecial;
+var selectNumber;
+
 // This function will get the length for the password
-var charLength = function()     {
-// prompt to find out length of password
-charLengthInput = window.prompt( "How long would you like your password to be? Choose a number between 8 and 128 characters.");
 //if valid number the functions stores the value, otherwise it returns the prompt again
-if (charLengthInput >=8 && charLengthInput <=128) {
-    return charLengthInput;
+for (let i=0; i < charLengthInput; i++) {
+    prompts(i)
     }
-else    {
-    window.alert("You need to choose a number greater than 8 and less than 128.");
-    charLength();
+function prompts ()     {
+        charLengthInput = window.prompt( "How long would you like your password to be? Choose a number between 8 and 128 characters.");
+        selectUppercase = window.confirm('Do you want any UPPER case letters in your password?');
+        selectLowercase = window.confirm('Do you want any Lower cases letters in your password?');
+        selectSpecial = window.confirm('Do you want any special letters in your password?');
+        selectNumber = window.confirm('Do you want any numbers in your password?')
+            if (charLengthInput >=8 && charLengthInput <=128) {
+                return charLengthInput;
+                }
+            else    {
+                    window.alert("You need to choose a number greater than 8 and less than 128.");
+                    }
+            if (selectUppercase===true) { 
+                    console.log(getrandomUppercase());
+                        }
+            if(selectLowercase===true) {
+                                output +=getrandomLowercase();
+                        }
+            if(selectSpecial===true) {
+                                output +=getrandomSpecial();
+                        }
+            if(selectNumber===true) {
+                                output +=getrandomNumber();
+                        }
+            // whatoDisplay = undefined;
+            // this loop runs the generateChars function and is set to run the length of the password
+            // this function checks if the user wants that particular character and then appends it to the output var
+
+                        // this generates random uppercase letters
+                    function getrandomUppercase() {
+                        return (String.fromCharCode(Math.floor((Math.random()*26) +65)));
+                    }
+                    // this generates random lowercase numbers
+                    function getrandomLowercase() {
+                    return String.fromCharCode((Math.floor(Math.random()*26) + 97));
+                    }
+                    // this generates random special characters
+                    function getrandomSpecial() {
+
+                    return String.fromCharCode((Math.floor(Math.random()*15)+32));
+                    }
+                    // this generates random numbers between 0-9
+                    function getrandomNumber() {
+                    return String.fromCharCode(Math.floor((Math.random()*10)+48));
+                    }
     }
 
-        whatoDisplay = undefined;
-}
-charLength();
+// prompts();
+console.log(output);
 
 // this statement will select which characters they want
-var selectUppercase = window.confirm('Do you want any UPPER case letters in your password?');
-var selectLowercase = window.confirm('Do you want any Lower cases letters in your password?');
-var selectSpecial = window.confirm('Do you want any special letters in your password?');
-var selectNumber = window.confirm('Do you want any numbers in your password?')
+// var selectUppercase = window.confirm('Do you want any UPPER case letters in your password?');
+// var selectLowercase = window.confirm('Do you want any Lower cases letters in your password?');
+// var selectSpecial = window.confirm('Do you want any special letters in your password?');
+// var selectNumber = window.confirm('Do you want any numbers in your password?')
  
-// this loop runs the generateChars function and is set to run the length of the password
- for (let i=0; i < charLengthInput; i++) {
-    generateChars(i)
-    }
-// this function checks if the user wants that particular character and then appends it to the output var
-function generateChars () {
-
-        if (selectUppercase===true) { 
-       output +=getrandomUppercase();
-        }
-        if(selectLowercase===true) {
-                output +=getrandomLowercase();
-
-        }
-        if(selectSpecial===true) {
-                output +=getrandomSpecial();
-
-        }
-        if(selectNumber===true) {
-                output +=getrandomNumber();
-        }
-
- }
-
 // this splits the output into an array of individual characters
 let array = output.split('');
-
+console.log(array);
 // this loop generates random characters from the arry to store as a final password
-
 for (var a =0; a < charLengthInput; a++) {
   getarraychar(a);
 }
+// this function takes random values from the array and stores it as final password to display
 function getarraychar () {
     whatoDisplay += array[randomarraynumber()];
 }
-console.log(whatoDisplay);
 
 // this displays my password
 document.getElementById('finalDisplay').innerHTML = whatoDisplay;
@@ -76,23 +93,6 @@ document.getElementById('finalDisplay').innerHTML = whatoDisplay;
 // this generates a random number within the array index
 function randomarraynumber () {
  return Math.floor(Math.random()* output.length);
-}
-// this generates random uppercase letters
-function getrandomUppercase() {
-    return (String.fromCharCode(Math.floor((Math.random()*26) +65)));
-}
-// this generates random lowercase numbers
-function getrandomLowercase() {
-   return String.fromCharCode((Math.floor(Math.random()*26) + 97));
-}
-// this generates random special characters
-function getrandomSpecial() {
-
-return String.fromCharCode((Math.floor(Math.random()*15)+32));
-}
-// this generates random numbers between 0-9
-function getrandomNumber() {
-return String.fromCharCode(Math.floor((Math.random()*10)+48));
 }
 
 
