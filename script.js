@@ -62,14 +62,13 @@ function generateChars () {
     }
 
         tocreateArray()
-        console.log(output);
  }
 
  // this splits the output into an array of individual characters
  function tocreateArray () {
         array = output.split('');
         getfinaldisplay () 
-        console.log(array);
+
     }
 
 // // this loop generates random characters from the arry to store as a final password
@@ -82,7 +81,6 @@ for (var a =0; a < charLengthInput; a++) {
 function getarraychar () {
     whatoDisplay += array[randomarraynumber()];
     display();
-console.log(whatoDisplay);
 }
 
 function display () {
