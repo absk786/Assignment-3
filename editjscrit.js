@@ -8,7 +8,7 @@ var selectUppercase;
 var selectLowercase;
 var selectSpecial; 
 var selectNumber;
-let array= [,,];
+let array= [];
 
 // This function will get the length for the password
 function charLength()  {
@@ -16,13 +16,16 @@ function charLength()  {
 charLengthInput = window.prompt( "How long would you like your password to be? Choose a number between 8 and 128 characters.");
 //if valid number the functions stores the value, otherwise it returns the prompt again
 if (charLengthInput >=8 && charLengthInput <=128) {
+    output='';
+    whatoDisplay = '';
+    array= [,,];
     askuser()
     return charLengthInput;
     }
 else    {
     window.alert("You need to choose a number greater than 8 and less than 128.");
     charLength()
-    }s
+    }
 }
 
 // this statement will select which characters they want
@@ -32,9 +35,6 @@ selectUppercase = window.confirm('Do you want any UPPER case letters in your pas
 selectLowercase = window.confirm('Do you want any Lower cases letters in your password?');
 selectSpecial = window.confirm('Do you want any special letters in your password?');
 selectNumber = window.confirm('Do you want any numbers in your password?')
-output='';
-whatoDisplay = '';
-array= [,,];
 generateChars ()
 }
 
@@ -57,9 +57,8 @@ function generateChars () {
         }
         if(selectUppercase===false && selectLowercase===false && selectSpecial===false && selectNumber===false) {
             window.alert("You must select atleast 1 character type")
-            charLength()
+            askuser()
         }
-    
     }
 
         tocreateArray()
